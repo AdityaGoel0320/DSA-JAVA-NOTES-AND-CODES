@@ -1,0 +1,149 @@
+Kunal recusion ke question 
+
+1 . to reverse a number 
+
+       static int  heplerfnc(int n, int sum) {
+        if (n == 0) {
+            return sum ; 
+        }
+        int rem = n % 10;
+        sum = sum * 10 + rem;
+        return heplerfnc(n / 10, sum);
+    }
+
+    static int  reverseNumber(int n) {
+        return heplerfnc(n, 0);
+    }
+  
+2. to check given nuumber is pallindrome or not
+    static boolean fnc(int n){
+        return == reverseNumber(n);
+    }
+
+3.to count zero in a number
+static int  countzero(int n , int c) {
+        if(n==0){
+            return c ; 
+        }
+
+        if(n%10==0){
+            c = c+1 ; 
+        }
+        return countzero(n/10, c);
+    }
+
+
+
+4 .to count steps to make a number zero by dividing by 2 (leetcode 1342)
+    static int  countStepsTo(int n , int s ){
+        if(n==0){
+            return s ; 
+        }
+        if(n%2==0){
+            n =n /2 ; 
+        }
+        else{
+            n=n-1 ; 
+        }
+        s++;
+
+        return countStepsTo(n, s);
+    }
+
+
+5. find arr is sorted or not
+    static boolean fnc(int[] arr, int i) {
+        if (i >= arr.length ) {
+            return true;
+        }
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        }
+        i++;
+        return fnc(arr, i);
+    }
+
+  
+
+6 . to do linear search in array
+
+
+    static int linearSearch(int[] arr, int i, int x) {
+        if (i == arr.length) {
+            return -1;
+        }
+        if (arr[i] == x) {
+            System.out.println("found");
+            return i ;
+        }
+
+        i++;
+        return linearSearch(arr, i, x);
+    }
+
+
+
+
+7. to return all postion of given number in ArrayList with hepler fnc
+
+
+    static ArrayList<Integer> heplerfnc(int[] arr, int i, ArrayList ans, int x) {
+        if (i == arr.length) {
+            return ans;
+        }
+        if (arr[i] == x) {
+            ans.add(i);
+        }
+        i++;
+        return heplerfnc(arr, i, ans, x);
+    }
+
+    static ArrayList<Integer> searchReturnArrayList(int[] arr, int i, int x) {
+        ArrayList ans = new ArrayList<>();
+
+        return heplerfnc(arr, i, ans, 2);
+    }
+
+
+8. to return all postion of given number in ArrayList without hepler fnc
+
+    static ArrayList<Integer> search_Return_ArrayList_Without_Heplper(int[] arr, int i, int x) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        if (i == arr.length) {
+            return ans;
+        }
+        if (arr[i] == x) {
+            ans.add(i);
+        }
+        i++;
+        ArrayList<Integer> z = search_Return_ArrayList_Without_Heplper(arr, i, x);
+        ans.addAll(z);
+        return ans;
+    }
+
+9. to do searching in a rotated binary array
+
+    static int roatedBinarySearch(int[] arr, int s, int e, int x) {
+        int mid = s + (e - s) / 2;
+        if (s > e) {
+            return -1;
+        }
+        if (arr[mid] == x) {
+            return mid;
+        }
+
+        // first half part of array
+        if (arr[s] <= arr[mid]) {
+            if (x >= arr[s] && x <= arr[mid]) {
+                return roatedBinarySearch(arr, s, mid - 1, x);
+            } else {
+                return roatedBinarySearch(arr, mid + 1, e, x);
+            }
+        }
+        // 2nd half par of array
+        if (x >= arr[mid] && x <= arr[e]) {
+            return roatedBinarySearch(arr, mid + 1, e, x);
+        } else {
+            return roatedBinarySearch(arr, s, mid - 1, x);
+        }
+    }

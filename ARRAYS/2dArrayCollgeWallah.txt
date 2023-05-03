@@ -1,0 +1,213 @@
+1. to print 2d array
+
+static void print2d(int[][] arr) {
+
+        for (int i = 0; i <= arr.length - 1; i++) {
+            for (int j = 0; j <= arr.length - 1; j++) {
+                System.out.print(arr[i][j] + " ");
+
+            }
+            System.out.println();
+        }
+
+    }
+
+
+
+
+2.  to transpose of matrix
+
+
+    static void transpose(int[][] arr) {
+
+        int l = arr.length;
+
+        for (int i = 0; i <= l - 1; i++) {
+            for (int j = i; j <= l - 1; j++) {
+
+                int c = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = c;
+            }
+        }
+
+    }
+
+
+3. to rotate 2d array cw 90 deg
+
+   static void Rotate2Darray(int[][] arr) {
+        transpose(arr);
+        for (int i = 0; i <= arr.length - 1; i++) {
+            reverse(arr[i], 0, arr[i].length - 1);
+        }
+
+    }
+
+
+
+4. to print pascal trinagle
+
+   static int[][] pascalTriangle(int n) {
+
+        int[][] arr = new int[n][];
+
+        for (int i = 0; i <= n - 1; i++) {
+            arr[i] = new int[i + 1];
+            arr[i][0] = 1 ; 
+            arr[i][i] = 1;
+            for (int j = 1; j <= i - 1; j++) {
+                arr[i][j] = arr[i - 1][j] + arr[i - 1][j - 1];
+
+            }
+
+        }
+        return arr;
+
+    }
+
+
+
+5. to print given array in spiral order
+static void printInSpiral(int[][] arr, int r, int c) {
+        int tr = 0;
+        int br = r - 1;
+        int lc = 0;
+        int rc = c - 1;
+
+        int count = 0;
+        while (count < r * c) {
+            // lc to rc so j changes and i same
+            for (int j = lc; j <= rc && count < r * c; j++) {
+                System.out.print(arr[tr][j] + " -> ");
+                count++;
+            }
+
+            tr++;
+
+            // tr to br so i chjanges
+            for (int i = tr; i <= br && count < r * c; i++) {
+                System.out.print(arr[i][rc] + " -> ");
+                count++;
+            }
+
+            rc--;
+
+            // rc to lc so j changes and decreses
+            for (int j = rc; j >= lc && count < r * c; j--) {
+                System.out.print(arr[br][j] + " -> ");
+                count++;
+
+            }
+
+            br--;
+
+            // br to tr so i changes
+            for (int i = br; i >= tr && count < r * c; i--) {
+                System.out.print(arr[i][lc] + " -> ");
+                count++;
+            }
+
+            lc++;
+        }
+    }
+
+
+6.  to genrater 2d array in spiral order
+ static int[][] generateSpiralMatrixx(int n) {
+        int[][] arr = new int[n][n];
+        int num = 1;
+        int tr = 0;
+        int br = n - 1;
+        int lc = 0;
+        int rc = n - 1;
+
+        while (num <= n * n) {
+            // lc to rc so j changes and i same
+            for (int j = lc; j <= rc && num <= n * n; j++) {
+                arr[tr][j] = num;
+                num++;
+            }
+
+            tr++;
+
+            // tr to br so i chjanges
+            for (int i = tr; i <= br && num <= n * n; i++) {
+                arr[i][rc] = num;
+                num++;
+            }
+
+            rc--;
+
+            // rc to lc so j changes and decreses
+            for (int j = rc; j >= lc && num <= n * n; j--) {
+                arr[br][j] = num;
+                num++;
+
+            }
+
+            br--;
+
+            // br to tr so i changes
+            for (int i = br; i >= tr && num <= n * n; i--) {
+                arr[i][lc] = num;
+                num++;
+            }
+
+            lc++;
+        }
+
+        return arr;
+    }
+
+   
+
+
+7. to find sum of particulat part of 2d array (brute force)
+
+
+    static int method1(int[][] arr, int l1, int r1, int l2, int r2) {
+
+        int sum = 0;
+        for (int i = l1; i <= l2; i++) {
+            for (int j = r1; j <= r2; j++) {
+                sum = sum + arr[i][j];
+
+            }
+        }
+
+        return sum;
+    }
+
+
+
+8. to find sum of particulat part of 2d array (using prefix )
+
+
+    static void prefixSum(int[] arr) {
+        for (int i = 1; i <= arr.length - 1; i++) {
+            arr[i] = arr[i] + arr[i - 1];
+
+        }
+
+    }
+static int method2(int[][] arr, int l1, int r1, int l2, int r2) {
+        int sum = 0;
+        for (int i = 0; i <= arr.length - 1; i++) {
+            prefixSum(arr[i]);
+        }
+        print2d(arr);
+        for (int i = l1; i <= l2; i++) {
+
+            if (r1 >= 1) {
+
+                sum = sum + arr[i][r2] - arr[i][r1 - 1];
+            } else {
+                sum = sum + arr[i][r2];
+
+            }
+        }
+        return sum;
+    }
+
+

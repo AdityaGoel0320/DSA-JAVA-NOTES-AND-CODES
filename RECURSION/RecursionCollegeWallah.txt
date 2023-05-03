@@ -1,0 +1,276 @@
+college wallah Recursion
+
+
+1 to print 5 4 3 2 1
+
+ static void numberInReverseOrder(int n){
+        if(n==0){
+            return ; 
+        }
+        System.out.println(n);
+        numberInReverseOrder(n-1);
+    }
+
+2 to print 1,2,3,4,5
+
+ static void numberInOrder(int n){
+        if(n==0){
+            return ; 
+        }
+        numberInOrder(n-1);
+        System.out.println(n);
+    }
+
+3 to print factorial
+
+   static int fact(int n){
+        if(n<0){
+            return -1 ; 
+        }
+        if(n==1 || n==0){
+            return  1 ; 
+        }
+        return n * fact(n-1) ; 
+
+    }
+
+
+4 . to find nth fibonacci number
+
+     static int  nthfib(int n) {
+        if (n == 1 || n == 0) {
+            return n;
+        }
+        return nthfib(n - 1) + nthfib(n - 2);
+    }
+
+
+5. to find sum of digit of a number
+
+ static int  SumOfDigit(int n){
+        if(n<=9){
+            return n ; 
+        }
+        return n%10  + SumOfDigit(n/10) ; 
+    }
+
+to find product of digit
+static int  productOfDigit(int n){
+        if(n<=9){
+            return  n ;
+        }
+        return n%10 + productOfDigit(n/10) ; 
+    }
+
+
+6.  to find p^q without prebulit fnc
+
+
+static int power(int n , int pow){
+        if(pow==1){
+            return  n ; 
+        }
+        return n * power(n, pow-1) ; 
+    }
+
+
+
+7 . to print k multples of number
+
+     
+    static void printmutiple(int n , int k ){
+        if(k==1){
+            System.out.println(n);
+            return ; 
+        }
+        printmutiple(n, k-1);
+        System.out.println(n*k);
+    }
+
+
+
+8. to sum alternate sign number 1-2+3-4-5......
+    static int SumOfAlternate(int n) {
+        if (n == 0) {
+            return 0;
+        }
+
+        if (n % 2 == 0) {
+            return SumOfAlternate(n - 1) - n;
+        } else {
+
+            return SumOfAlternate(n - 1) + n;
+        }
+    }
+
+   
+9 .to find gcd or hcf using euclid algo
+   
+    static int euclidAlgo_HCF(int x , int y ){
+        if(y==0){
+            return x ; 
+        }
+
+        return euclidAlgo_HCF(y, x%y) ; 
+    }
+
+
+
+10.  to find lcm using hcf
+ static int lcm (int x , int y ){
+        int  ans =  (x*y)/euclidAlgo_HCF(x, y) ;
+        return ans ; 
+    }
+
+
+11. to find max of array
+
+static int findMaxOfArray(int[] arr, int i) {
+        if (i == arr.length - 1) {
+            return arr[i];
+        }
+        return Math.max(arr[i], findMaxOfArray(arr, i + 1));
+    }
+
+
+
+12. to find sum of array
+
+
+    static int helperfnc(int[] arr, int i, int sum) {
+        if (i == arr.length - 1) {
+            sum = sum + arr[i];
+            return sum;
+
+        }
+        sum = sum + arr[i];
+        return helperfnc(arr, i + 1 ,sum);
+    }
+
+    static int sumOfArray(int[] arr, int i) {
+        int sum = 0;
+        return helperfnc(arr, i, sum);
+    }
+
+
+
+
+
+// string recusion questions
+
+13. to print string without a particular character
+
+    static String heplerfnc(String str, int i, String ans) {
+
+        if(i==str.length()){
+            return ans ; 
+        }
+        if(str.charAt(i)!='a'){
+            ans = ans + str.charAt(i) ; 
+        }
+        return heplerfnc(str, i+1, ans);
+    }
+
+    static String removeCahracterFromString(String str , int i){
+        String ans = "" ; 
+        return heplerfnc(str, i, ans) ; 
+    }
+
+
+
+14.  to do reverse of a string
+
+    static String reverseOfString(String str, int i) {
+        if (i == str.length()) {
+            return "";
+        }
+
+        return reverseOfString(str, i + 1) + str.charAt(i);
+    }
+
+
+
+15. to check whether string is pallindrome or not
+
+
+
+       static boolean heplerfnc(String str, int i, int j) {
+        if(i>j){
+            return true ; 
+        }
+
+        if(str.charAt(i)==str.charAt(j)){
+            i++;
+            j--;
+        }
+        else{
+            return false ; 
+        }
+
+        return heplerfnc(str, i, j) ; 
+    }
+
+
+    static boolean fnc(String str, int i) {
+        int  j = str.length()-1 ; 
+         return heplerfnc(str, i, j);
+    }
+
+
+    
+16. to save all Subsequnces of string in ArrayList
+
+
+ static ArrayList<String> stringSubsequnces(String str){
+        ArrayList<String> ans = new ArrayList<>() ; 
+        if(str.length()==0){
+            ans.add("") ;
+            return ans ; 
+        }
+        char currentCharacter = str.charAt(0) ; 
+        ArrayList<String> smallans = stringSubsequnces(str.substring(1)); 
+        for(String  x : smallans){
+            ans.add(x) ; 
+            ans.add(currentCharacter+x) ;
+
+        }
+
+        return ans ; 
+    }
+
+
+
+
+     
+
+17. to print  all Subsequnces of string 
+
+static void printAllStringSubsequences(String str , String currAns){
+        if(str.length()==0){
+            System.out.println(currAns);
+            return ; 
+        }
+        char currentCharacter = str.charAt(0) ; 
+        String remainingString = str.substring(1) ; 
+        printAllStringSubsequences(remainingString, currAns+currentCharacter);
+        printAllStringSubsequences(remainingString, currAns);
+    }
+
+    
+
+18 . to print sum of subset of array
+
+
+    static void sumOfSubsetOfArray(int[] arr, int i, int sum) {
+        if (i >= arr.length) {
+            System.out.println(sum);
+            return;
+        }
+        sumOfSubsetOfArray(arr, i + 1, sum + arr[i]);
+        sumOfSubsetOfArray(arr, i + 1, sum);
+
+    }
+
+
+
+

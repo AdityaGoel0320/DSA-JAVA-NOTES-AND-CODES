@@ -1,0 +1,373 @@
+1. to remove a particular Node
+       simply for loop we do :-
+
+
+    static Node delete(Node x) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.next == x) {
+                temp.next = temp.next.next;
+            }
+        }
+    }
+
+    for better :- 
+    static Node delete(Node x) {
+        x.value = x.next.value;
+        x.next = x.next.next;
+        return x;
+
+    }
+
+
+
+2.to find nth node from end
+
+    static Node NthNodeFromEnd_Better(Node head, int n) {
+        Node slow = head;
+        Node fast = head;
+        for (int i = 0; i <= n - 1; i++) {
+            fast = fast.next;
+
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+
+3. to remove the nth node from the end
+
+    static void deleteNthNodeFromEnd(Node head, int n) {
+        Node fast = head;
+        Node slow = head;
+        for (int i = 0; i <= n - 1; i++) {
+            fast = fast.next;
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        display(head);
+    }
+
+
+4. to find intersection of 2 linked list
+    static int length(Node head) {
+        Node temp = head;
+        int l = 0;
+        while (temp != null) {
+            l++;
+            temp = temp.next;
+        }
+        return l;
+    }
+
+    public Node getIntersectionNode(Node headA, Node headB) {
+        Node tempA = headA;
+        Node tempB = headB;
+        int l1 = length(headA);
+        int l2 = length(headB);
+        if (l1 > l2) {
+            int step = l1 - l2;
+            for (int i = 0; i <= step - 1; i++) {
+                tempA = tempA.next;
+            }
+        } else {
+            int step = l2 - l1;
+            for (int i = 0; i <= step - 1; i++) {
+                tempB = tempB.next;
+            }
+        }
+        while (tempA != tempB) {
+            tempA = tempA.next;
+            tempB = tempB.next;
+
+        }
+        return tempA;
+    }
+
+
+
+5. to find middle of linked list
+    public Node middleNode(Node head) {
+        Node fast = head ; 
+        Node slow = head ; 
+        while(fast!=null && fast.next!=null){
+            if(fast!=null && fast.next!=null){
+                 fast = fast.next.next ; 
+            }   
+            slow = slow.next ; 
+        }
+        return slow ; 
+    }
+
+6. to delete middle element form the linked list
+   public Node deleteMiddle(Node head) {
+        // if only one node is present    
+        if(head.next==null){
+            return null ; 
+        }
+        Node fast = head ; 
+        Node slow = head ; 
+        while(fast!=null && fast.next!=null && fast.next.next!=null && fast.next.next.next!=null){
+            fast= fast.next.next ; 
+            slow = slow.next ; 
+        }        
+        // now for delete
+        if(slow!=null &&slow.next!=null){
+            slow.next = slow.next.next ; 
+        }
+        return head ;
+   }
+
+
+
+
+7. to find cycle or loop in linked list
+    public boolean hasCycle(Node head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+        Node slow = head;
+        Node fast = head;
+        while (fast != null) {
+            if (slow == null) {
+                return false;
+            }
+            slow = slow.next;
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+            fast = fast.next.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+8. to return node which starts the cycle in linked list
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null) {
+
+            if (slow == null) {
+                return null;
+            }
+            slow = slow.next;
+            if (fast == null || fast.next == null) {
+                return null;
+            }
+            fast = fast.next.next;
+            if (fast == slow) {
+                break ; 
+            }
+        }
+        ListNode temp = head ; 
+        while(temp!=slow){
+            temp = temp.next ;
+            if(slow!=null){
+                slow = slow.next ; 
+            }
+        }
+        return slow;
+        
+        
+    }
+
+
+
+9. to merge 2 sorted linkedlist
+
+// without extra space
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode temp1 = l1;
+        ListNode temp2 = l2;
+        ListNode head = new ListNode(100);
+        ListNode temp3 = head;
+        while (temp1 != null && temp2 != null) {
+            if (temp1.val < temp2.val) {
+                temp3.next = temp1;
+                temp3 = temp1;
+                temp1 = temp1.next;
+            } else {
+                temp3.next = temp2;
+                temp3 = temp2;
+                temp2 = temp2.next;
+
+            }
+        }
+        if (temp1 == null) {
+            temp3.next = temp2;
+        } else {
+            temp3.next = temp1;
+        }
+        return head.next;
+    }
+
+
+
+
+10. to reverse a linked list
+
+// using recusion
+    static Node reverse(Node head) {
+        // base case
+        if (head.next == null) {
+            return head;
+        }
+        
+        // recusion work
+        Node newhead = reverse(head.next);
+
+        //my work
+        head.next.next = head;
+        head.next = null;
+
+
+        return newhead;
+    }
+
+// using loops more optimised
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null ; 
+        ListNode agla= null ;
+        ListNode curr= head ; 
+        while(curr!=null){
+            agla = curr.next ;
+            curr.next = prev ; 
+            prev = curr ; 
+            curr = agla ;  
+        } 
+        return prev ; 
+    }
+
+
+
+
+
+11. to find give linked list is pallindrome or not
+
+    Node reverse(Node head) {
+        Node prev = null;
+        Node agla = null;
+        Node curr = head;
+        while (curr != null) {
+            agla = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = agla;
+        }
+        return prev;
+    }
+
+    public boolean isPalindrome(Node head) {
+
+
+        //finding mid of LinkedList
+
+        Node slow = head;
+        Node fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        //slow = mid 
+
+        Node temp = reverse(slow.next);
+        slow.next = temp;
+
+        Node p1 = head;
+        Node p2 = slow.next;
+
+        while (p2 != null) {
+            if (p1.val != p2.val) {
+                return false;
+            }
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return true;
+    }
+
+
+
+12. to print LinkedList in odd-even form (leetcode 328)
+    public Node oddEvenList(Node head) {
+        Node odd = new Node(0);
+        Node even = new Node(0);
+        Node tempe = even;
+        Node tempo = odd;
+        Node temp = head;
+        while (temp != null) {
+            tempo.next = temp;
+            temp = temp.next;
+            tempo = tempo.next;
+
+            tempe.next = temp;
+            if (temp == null) {
+                break;
+            }
+
+            temp = temp.next;
+            tempe = tempe.next;
+        }
+        odd = odd.next;
+        even = even.next;
+        tempo.next = even;
+        return odd;
+
+    }
+
+
+
+
+
+
+
+//double linkedlist leetcode q 430 imp
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
+*/
+
+class Solution {
+    public Node flatten(Node head) {
+        Node temp = head ;
+         while(temp!=null){
+                 Node t = temp.next ; 
+             if(temp.child!=null){
+                 Node c = flatten(temp.child) ;
+                 temp.next  =c ;
+                 c.prev=temp;
+                 while(c.next!=null){
+                     c= c.next ; 
+                 } 
+                 c.next = t  ; 
+                 if(t!=null){
+
+                 t.prev= c ; 
+                 }
+             }
+            //  temp = temp.next ; 
+         temp.child = null ; 
+         temp =t ; 
+         }
+         return head ; 
+    }
+}
+
