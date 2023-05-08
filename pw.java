@@ -86,13 +86,41 @@ public class pw {
 
     }
 
+    static void nearestSmallestToRight(int[] arr) {
+        Stack<Integer> s1 = new Stack<>();
+        int l = arr.length;
+        int[] ans = new int[l];
+
+        for (int i = l - 1; i >= 0; i--) {
+            if (s1.size() == 0) {
+                ans[i] = -1;
+            } else if (s1.size() > 0 && s1.peek() < arr[i]) {
+                ans[i] = s1.peek();
+            } else if (s1.size() > 0 && s1.peek() >= arr[i]) {
+                while (s1.size() > 0 && s1.peek() >= arr[i]) {
+                    s1.pop();
+                }
+                if (s1.size() == 0) {
+                    ans[i] = -1;
+                } else {
+                    ans[i] = s1.peek();
+
+                }
+
+            }
+            s1.push(arr[i]);
+        }
+        System.out.println(Arrays.toString(ans));
+    }
+
     public static void main(String[] args) {
         int[] arr = { 4, 5, 2, 10, 8, };
         // System.out.println(Arrays.toString(ans));
         // fnc(arr);
-        // greaterToleft(arr);
-        // greaterToRight(arr);
+        greaterToleft(arr);
+        greaterToRight(arr);
         nearestSmallestToLeft(arr);
+        nearestSmallestToRight(arr);
 
     }
 }
