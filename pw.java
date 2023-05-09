@@ -117,8 +117,8 @@ public class pw {
         int[] arr = { 4, 5, 2, 10, 8, };
         // System.out.println(Arrays.toString(ans));
         // fnc(arr);
-        greaterToleft(arr);
-        greaterToRight(arr);
+        // greaterToleft(arr);
+        // greaterToRight(arr);
         nearestSmallestToLeft(arr);
         nearestSmallestToRight(arr);
 
