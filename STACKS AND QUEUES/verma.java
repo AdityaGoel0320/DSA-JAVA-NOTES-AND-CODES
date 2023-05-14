@@ -36,13 +36,6 @@ public class verma {
     
 }
 
-    // kfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijgkfbhkdfbrigfuirgighthjtgntijg
-    // rgrthtjhhtyhtgihyth
-    // rgrthtjhhtyhtgihyth
-    // rgrthtjhhtyhtgihyth
-    // rgrthtjhhtyhtgihyth
-    // rgrthtjhhtyhtgihyth
-
 
 
     
