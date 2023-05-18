@@ -35,11 +35,6 @@ public class verma {
     }
     
 }
-// hfi8ergfuirvfgburgvberuv
-// hfi8ergfuirvfgburgvberuv
-// hfi8ergfuirvfgburgvberuv
-// hfi8ergfuirvfgburgvberuv
-// hfi8ergfuirvfgburgvberuv
 
 
     

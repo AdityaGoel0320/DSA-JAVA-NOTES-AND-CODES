@@ -1,5 +1,6 @@
-import java.util.Deque;
-import java.util.LinkedList;
+// import java.util.Deque;
+import java.util.*;
+// import java.util.LinkedList;
 
 public class prebuiltDeque {
     public static void main(String[] args) {
