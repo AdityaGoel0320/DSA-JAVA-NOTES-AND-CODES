@@ -1,15 +1,5 @@
 package OOPS;
 public class oops {
-    
-
-
-
-
-
-
-
-
-    
     static class A{
         private int a = 1 ; 
         void geta(){
