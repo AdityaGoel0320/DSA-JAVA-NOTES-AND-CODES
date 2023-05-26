@@ -113,18 +113,48 @@ public class pw {
         System.out.println(Arrays.toString(ans));
     }
 
+    public static int[] calculateStockSpan(int[] arr) {
+        int n = arr.length;
+        int[] span = new int[n];
+        Stack<Integer> stack = new Stack<>();
+
+        // The first day always has a span of 1
+        span[0] = 1;
+        stack.push(0);
+
+        for (int i = 0; i <= n - 1; i++) {
+            // Pop elements from the stack while the stock arr are less than or equal to
+            // the current price
+            while (!stack.isEmpty() && arr[stack.peek()] <= arr[i]) {
+                stack.pop();
+            }
+
+            // Calculate the span of the current day
+            if (stack.isEmpty() == true) {
+                span[i] = i + 1;
+            } else {
+                span[i] = i - stack.peek();
+
+            }
+            // Push the current day onto the stack
+            stack.push(i);
+        }
+
+        return span;
+    }
+
     public static void main(String[] args) {
-        int[] arr = { 4, 5, 2, 10, 8, };
+        int[] arr = { 100, 80, 60, 70, 60, 75, 85 };
         // System.out.println(Arrays.toString(ans));
         // fnc(arr);
         // greaterToleft(arr);
         // greaterToRight(arr);
-        nearestSmallestToLeft(arr);
-        nearestSmallestToRight(arr);
+        int[] span = calculateStockSpan(arr);
+
+        System.out.println("Stock arr: " + Arrays.toString(arr));
+        System.out.println("Stock Spans: " + Arrays.toString(span));
+        // nearestSmallestToLeft(arr);
+        // nearestSmallestToRight(arr);
 
     }
 }
-
-// dgvbjfjvfbujvjuvf
-// dgvbjfjvfbujvjuvf
-// dgvbjfjvfbujvjuvf\vfbujvbdfjvb
