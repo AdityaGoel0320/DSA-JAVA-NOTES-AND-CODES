@@ -64,6 +64,10 @@ public class pwStacks {
                 }
 
             }
+
+
+
+            
         }
         System.out.println(s1);
     }
