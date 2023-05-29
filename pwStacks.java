@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Stack;
 
 public class pwStacks {
@@ -65,25 +66,62 @@ public class pwStacks {
 
             }
 
-
-
-            
         }
         System.out.println(s1);
+
+    }
+
+    static void nearestGrestest(int[] arr) {
+        Stack<Integer> s1 = new Stack<>();
+        int l = arr.length;
+        int i = l - 1;
+        int[] ans = new int[l];
+        while (i >= 0) {
+
+            if (s1.size() == 0) {
+                s1.push(arr[i]);
+                ans[i] = -1;
+                i--;
+            }
+
+            else if (s1.size() > 0 && s1.peek() > arr[i]) {
+                ans[i] = s1.peek();
+                s1.push(arr[i]);
+                i--;
+            }
+
+            else if (s1.size() > 0 && s1.peek() < arr[i]) {
+                while (s1.size() > 0 && s1.peek() < arr[i]) {
+                    s1.pop();
+                }
+                if (s1.size() > 0) {
+                    ans[i] = s1.peek();
+                    s1.push(arr[i]);
+                    i--;
+
+                } else {
+                    ans[i] = -1;
+                    s1.push(arr[i]);
+                    i--;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(ans));
     }
 
     public static void main(String[] args) {
         System.out.println();
         System.out.println("Question on Stack in java");
-        System.out.println();
+        // System.out.println();
 
-        String str = "{{{{{{{{{{{{[[[[[[[[(((((((((()))))))))]]]]]]]]}}}}}}}}}}}}";
-        System.out.println(fnc(str));
+        // String str = "{{{{{{{{{{{{[[[[[[[[(((((((((()))))))))]]]]]]]]}}}}}}}}}}}}";
+        // System.out.println(fnc(str));
 
-        System.out.println();
+        // System.out.println();
 
-        int[] arr = { 1,2,2,3,4,5,5,5,6,6,6,6};
-        consecutoine(arr);
+        int[] arr = { 1, 3, 2, 1, 8, 6, 3, 4 };
+        // consecutoine(arr);
+        nearestGrestest(arr);
     }
 
 }
