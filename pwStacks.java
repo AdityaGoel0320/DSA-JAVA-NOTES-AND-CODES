@@ -133,6 +133,13 @@ public class pwStacks {
 
         // System.out.println();
 
+
+
+
+
+
+        
+
         int[] arr = { 1, 3, 2, 1, 8, 6, 3, 4 };
         // consecutoine(arr);
         nearestGrestest(arr);
