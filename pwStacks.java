@@ -108,21 +108,6 @@ public class pwStacks {
         }
         System.out.println(Arrays.toString(ans));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
         System.out.println();
         System.out.println("Question on Stack in java");
