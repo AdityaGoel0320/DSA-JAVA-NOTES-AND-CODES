@@ -143,16 +143,61 @@ public class pw {
         return span;
     }
 
+    static void nearestSmallestToRight(int[] arr) {
+        int l = arr.length;
+        int[] ans = new int[l];
+        int i = l - 1;
+        Stack<Integer> s1 = new Stack<>();
+        while (i >= 0) {
+            if (s1.size() == 0) {
+                ans[i] = -1;
+                s1.push(i);
+                i--;
+            } else if (s1.size() > 0 && arr[s1.peek()] < arr[i]) {
+                int x = s1.peek();
+                ans[i] = arr[x];
+                s1.push(i);
+                i--;
+
+            }
+
+            else if (s1.size() > 0 && arr[s1.peek()] > arr[i]) {
+                while (s1.size() > 0 && arr[s1.peek()] > arr[i]) {
+                    s1.pop();
+                }
+
+                if (arr[s1.peek()] < arr[i]) {
+
+                    int x = s1.peek();
+                    ans[i] = arr[x];
+                    s1.push(i);
+                    i--;
+
+                } else {
+                    ans[i] = -1;
+                    s1.push(i);
+                    i--;
+                }
+
+            }
+        }
+        System.out.println(Arrays.toString(ans));
+    }
+
     public static void main(String[] args) {
-        int[] arr = { 100, 80, 60, 70, 60, 75, 85 };
+
+        int[] arr = { 5, 2, 4, 6, 3, 5 };
+        nearestSmallestToRight(arr);
+
+        // int[] arr = { 100, 80, 60, 70, 60, 75, 85 };
         // System.out.println(Arrays.toString(ans));
         // fnc(arr);
         // greaterToleft(arr);
         // greaterToRight(arr);
-        int[] span = calculateStockSpan(arr);
+        // int[] span = calculateStockSpan(arr);
 
-        System.out.println("Stock arr: " + Arrays.toString(arr));
-        System.out.println("Stock Spans: " + Arrays.toString(span));
+        // System.out.println("Stock arr: " + Arrays.toString(arr));
+        // System.out.println("Stock Spans: " + Arrays.toString(span));
         // nearestSmallestToLeft(arr);
         // nearestSmallestToRight(arr);
 
