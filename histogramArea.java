@@ -20,8 +20,8 @@ public class histogramArea {
 
             }
 
-            else if (s1.size() > 0 && arr[s1.peek()] > arr[i]) {
-                while (s1.size() > 0 && arr[s1.peek()] > arr[i]) {
+            else if (s1.size() > 0 && arr[s1.peek()] >arr[i]) {
+                while (s1.size() > 0 && arr[s1.peek()] >= arr[i]) {
                     s1.pop();
                 }
 
@@ -96,15 +96,12 @@ public class histogramArea {
         int l = arr.length;
         int[] nse = nearestSmallestToRightIndex(arr);
         int[] nsl = nearestSmallestToLeftIndex(arr);
-        int[] area = new int[l];
+        int ans = -1;
         for (int i = 0; i <= l - 1; i++) {
-            area[i] = arr[i] * (nse[i] - nsl[i] - 1);
+            int area = arr[i] * (nse[i] - nsl[i] - 1);
+            ans = Math.max(ans, area);
         }
-        System.out.println("area array = " + Arrays.toString(area));
-
-        Arrays.sort(area);
-        System.out.println("area array after sorting = " +Arrays.toString(area));
-        System.out.println("ans is = " + area[l-1]);
+        System.out.println(ans);
 
     }
 
