@@ -21,12 +21,6 @@ public class pw {
     }
 
     static boolean anagram(String str1, String str2) {
-
-
-
-
-
-        
         HashMap<Character, Integer> h1 = makeFreqMap(str1);
         HashMap<Character, Integer> h2 = makeFreqMap(str2);
 
