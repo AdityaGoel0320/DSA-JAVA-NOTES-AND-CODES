@@ -54,3 +54,16 @@ ANS  = 1,5,6,7
         System.out.println(Arrays.toString(ans));
         System.out.println(s1);
     }
+
+
+
+3. top reverse a Stack
+
+static Stack<Integer> reverse(Stack<Integer> s1, Stack<Integer> ans) {
+        if (s1.empty() == true) {
+            return ans;
+        }
+        int x = s1.pop();
+        ans.push(x);
+        return reverse(s1, ans);
+    }

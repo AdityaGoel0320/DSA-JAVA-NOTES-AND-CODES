@@ -3,15 +3,7 @@ import java.util.*;
 
 public class pwStack {
 
-    static Stack<Integer> reverse(Stack<Integer> s1, Stack<Integer> ans) {
-        if (s1.empty() == true) {
-            return ans;
-        }
-        int x = s1.pop();
-        ans.push(x);
-        return reverse(s1, ans);
-    }
-
+    
     static void nearestSmallestToRight(int[] arr) {
         int l = arr.length;
         int[] ans = new int[l];
