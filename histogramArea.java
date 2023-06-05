@@ -10,6 +10,11 @@ public class histogramArea {
         while (i >= 0) {
             if (s1.size() == 0) {
                 ans[i] = l;
+
+
+
+
+                
                 s1.push(i);
                 i--;
             } else if (s1.size() > 0 && arr[s1.peek()] < arr[i]) {
