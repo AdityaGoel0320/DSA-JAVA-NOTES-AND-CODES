@@ -1,5 +1,3 @@
-package HASHMAP;
-
 import java.util.HashMap;
 
 public class pw {
