@@ -1,4 +1,3 @@
-package STACKS.IMPLEMENTATION;
 public class StacksUsingLinkedList {
     static class Node {
         int value;

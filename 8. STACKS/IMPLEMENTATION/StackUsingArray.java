@@ -1,4 +1,3 @@
-package STACKS.IMPLEMENTATION;
 import java.util.Arrays;
 
 public class StackUsingArray {
