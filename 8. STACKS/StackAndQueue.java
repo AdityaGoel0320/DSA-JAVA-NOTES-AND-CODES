@@ -7,6 +7,10 @@ public class StackAndQueue {
         Stack<Integer> s1 = new Stack<>();
 
         s1.push(1);
+
+
+
+        
         s1.push(12);
         System.out.println(s1.pop());
         System.out.println(s1.pop());
