@@ -8,6 +8,12 @@ public class StacksUsingLinkedList {
 
         Node(int x) {
             this.value = x;
+
+
+
+
+
+            
         }
     }
 
