@@ -13,6 +13,12 @@ public class StacksUsingLinkedList {
 
     static class Stack {
 
+
+
+
+
+        
+
         Node head = new Node();
         int size = 0;
 
