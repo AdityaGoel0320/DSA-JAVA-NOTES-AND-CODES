@@ -5,30 +5,12 @@ public class StacksUsingLinkedList {
 
         Node() {
         }
-
-
-
-
-
         Node(int x) {
             this.value = x;
-
-
-
-
-
-            
         }
     }
 
     static class Stack {
-
-
-
-
-
-        
-
         Node head = new Node();
         int size = 0;
 
