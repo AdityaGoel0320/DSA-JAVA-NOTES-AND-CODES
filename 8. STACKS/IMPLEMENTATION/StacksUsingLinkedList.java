@@ -80,9 +80,6 @@ public class StacksUsingLinkedList {
 
         System.out.println("size");
         System.out.println(s1.size);
-
-
-        
         System.out.println("peek");
         System.out.println(s1.peek());
 
