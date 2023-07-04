@@ -3,14 +3,7 @@ public class StacksUsingLinkedList {
         int value;
         Node next;
 
-
-        
-
         Node() {
-
-
-
-            
         }
         Node(int x) {
             this.value = x;
@@ -20,8 +13,6 @@ public class StacksUsingLinkedList {
     static class Stack {
         Node head = new Node();
 
-
-        
         int size = 0;
 
         boolean isEmpty() {
