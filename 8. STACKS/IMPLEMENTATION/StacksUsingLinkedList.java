@@ -15,6 +15,9 @@ public class StacksUsingLinkedList {
 
         int size = 0;
 
+
+
+        
         boolean isEmpty() {
             if (size == 0) {
                 return true;
