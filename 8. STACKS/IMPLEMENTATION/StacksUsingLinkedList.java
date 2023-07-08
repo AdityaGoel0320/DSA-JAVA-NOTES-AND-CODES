@@ -2,33 +2,18 @@ public class StacksUsingLinkedList {
     static class Node {
         int value;
         Node next;
-
         Node() {
         }
         Node(int x) {
-
-
-
-            
             this.value = x;
         }
     }
 
     static class Stack {
 
-
-
-        
         Node head = new Node();
 
         int size = 0;
-
-
-
-        
-
-
-
         boolean isEmpty() {
             if (size == 0) {
                 return true;
