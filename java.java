@@ -5,6 +5,12 @@ static void nearestSmallestToRightIndex(int[] arr) {
         int l = arr.length;
         int[] ans = new int[l];
         int i = l - 1;
+
+
+
+
+
+        
         Stack<Integer> s1 = new Stack<>();
         while (i >= 0) {
             if (s1.size() == 0) {
