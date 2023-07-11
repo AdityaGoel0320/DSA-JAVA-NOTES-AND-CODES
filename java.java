@@ -41,6 +41,10 @@ static void nearestSmallestToRightIndex(int[] arr) {
                 }
 
             }
+
+
+
+            
         }
         System.out.println(Arrays.toString(ans));
     }
